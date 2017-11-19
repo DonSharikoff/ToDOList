@@ -19,10 +19,9 @@ class ToDo {
 
     view() {
         $.ajax({
-            method: "GET",
-            url: "/php/ajax.php",
+            method: "POST",
+            url: "/get_list",
             dataType: 'JSON',
-            data: {action: 'view'},
             success: (function (data) {
                 ToDo.render(data)
             }),
@@ -31,10 +30,10 @@ class ToDo {
 
     add(val) {
         $.ajax({
-            method: "GET",
-            url: "/php/ajax.php",
+            method: "POST",
+            url: "/add",
             dataType: 'JSON',
-            data: {action: 'add', text: val},
+            data: {text: val},
             success: (function (data) {
                 ToDo.render(data)
             }),
@@ -43,10 +42,10 @@ class ToDo {
 
     del(id) {
         $.ajax({
-            method: "GET",
-            url: "/php/ajax.php",
+            method: "POST",
+            url: "/delete",
             dataType: 'JSON',
-            data: {action: 'delete', id: id},
+            data: {id: id},
             success: (function (data) {
                 ToDo.render(data)
             }),
@@ -55,10 +54,10 @@ class ToDo {
 
     update(change) {
         $.ajax({
-            method: "GET",
-            url: "/php/ajax.php",
+            method: "POST",
+            url: "/update",
             dataType: 'JSON',
-            data: {action: 'update', change: change},
+            data: {change: change},
             success: (function (data) {
                 ToDo.render(data)
             }),
